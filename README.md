@@ -4,24 +4,24 @@
 
 1. Install packages
     ```
-    yarn install
+    npm install
     ```
 
 2. Copy your firebase configuration file into `src/myconfig.ts`
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm run build
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm lint
 ```
 
 ### Customize configuration

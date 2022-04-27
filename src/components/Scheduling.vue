@@ -22,11 +22,8 @@
       <label for="time">Select a time</label>
     </div>
     <div>
-      <input id="service" type="text">
-      <select>
-        <option value="0">Select a Service </option>
-        <!--<option v-for="(s,pos) in Nails" :key="pos"> {{s}}</option>-->
-      </select>
+      <input id="service" type="text" v-model ="selectedServices">
+      <label for="name">Type in service</label>
     </div>
     <div>
     <input type="text" 
@@ -50,9 +47,14 @@
     <div id="face" v-for="item in selectedClient" :key="item.phoneNumber">
     <div>Name: {{item.name}}</div>
     <div>ID: {{item.id}}</div>
+    <div>Service: {{item.selectedServices}}</div>
     <div>{{item.date}}</div>
     <h3 class="truncate">{{item.time}}</h3>
   </div>
+
+  <div class ="pie">
+  <my-apexchart width="340" type="pie" :options="chartOptions" :series="series"></my-apexchart>
+</div>
 
     <span class ="bottom">
     <router-link to="/about"> About</router-link> |
@@ -104,7 +106,7 @@ type Client = {
   phoneNumber: string;
   date: any;
   time: any;
-  selectedServices: Array<string>;
+  selectedServices: string;
 
 };
 
@@ -116,7 +118,7 @@ export default class Scheduling extends Vue {
   clientID = "";
   selectedDate: any = null;
   selectedTime: any = null;
-  selectedServices : Array<string>=[];
+  selectedServices = "";
   selectedClient: Array<Client> = [];
   selectedSave: Array<Client> =[];
   appointID ="";
@@ -134,6 +136,7 @@ mounted(): void {
       
     });
     this.readData();
+    this.SavePrice();
   }
 
 readData(): void{
@@ -174,7 +177,7 @@ var db:Firestore = getFirestore(myapp);
 
 // add a new document with our own uid
 this.selectedClient.forEach(
-    async (z: { name: string; phoneNumber: string; date: any; time: any; selectedServices: Array<string>; id:string; }) => {
+    async (z: { name: string; phoneNumber: string; date: any; time: any; selectedServices: string; id:string; }) => {
       var d = doc(db, uid, z.id );
       await setDoc(d, {name: z.name, phoneNum: z.phoneNumber,date:z.date,time:z.time,service: z.selectedServices, id: z.id });
     }
@@ -187,6 +190,25 @@ this.selectedClient.forEach(
   }
 }
 
+
+// Save data for price, all user have this data
+SavePrice(): void{
+  //this.readData();
+var myapp: FirebaseApp = initializeApp(firebaseConfig);
+var db:Firestore = getFirestore(myapp);
+
+// add a new document with our own uid
+
+      var d = doc(db, "perdicures", "service" );
+       setDoc(d, {name1:"pedicure",name2:"shellac pedicure", name3:"polish change" });
+       var e = doc(db, "perdicures", "price" );
+       setDoc(e, {price1:"28",price2:"34", price3:"12" });
+    }
+    // read price data
+
+    
+ 
+ 
 
 // delete user data
 DeleteAppoint(): void{
@@ -205,6 +227,31 @@ const illi = doc(db, uid, this.appointID);
   });
 
 }
+
+public chartOptions = {
+        chart: {
+          width: 380,
+          type: 'pie',
+        },
+       
+        labels: ['Pedicure', 'Shellac Pedicure', 'Polish Change'],
+        responsive:[{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 700,
+
+            },
+            legend:{
+              position: 'right',
+            },
+          },
+        }],
+        
+      };
+     public series =[28, 34, 12];
+      
+    
 
 
 
@@ -291,7 +338,9 @@ div{
   font-size: 70%;
 }
 .pie{
-  right: 10px;
+  position: absolute;
+        top: 150px;
+        right: 0px;
 }
 
 </style>
