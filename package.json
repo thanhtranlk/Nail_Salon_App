@@ -14,6 +14,7 @@
     "@types/webpack-env": "^1.16.3",
     "apexcharts": "^3.35.0",
     "axios": "^0.26.1",
+    "babel": "^6.23.0",
     "chart.js": "^3.7.1",
     "core-js": "^3.8.3",
     "firebase": "^9.6.11",
@@ -45,5 +46,25 @@
     "typescript": "~4.5.5",
     "vue-template-compiler": "^2.6.14",
     "webpack-env": "^0.8.0"
-  }
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

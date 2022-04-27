@@ -1,12 +1,12 @@
 <template>
   <div class="about">
-    <About/>
+    <About />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import About from '@/components/About.vue'; // @ is an alias to /src
+import { Component, Vue } from "vue-property-decorator";
+import About from "@/components/About.vue"; // @ is an alias to /src
 
 @Component({
   components: {
@@ -15,6 +15,4 @@ import About from '@/components/About.vue'; // @ is an alias to /src
 })
 export default class AboutView extends Vue {}
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

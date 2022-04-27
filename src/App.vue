@@ -1,4 +1,3 @@
-
 <template>
   <main id="app">
     <nav>
@@ -7,15 +6,15 @@
       <router-link to="/booking"> Book an Appointment</router-link> |
       <router-link to="/services"> Services</router-link> -->
       <transition name="shrink-explode">
-      <router-view />
-    </transition>
+        <router-view />
+      </transition>
     </nav>
     <!-- <router-view/> -->
   </main>
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,5 +35,4 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
 </style>

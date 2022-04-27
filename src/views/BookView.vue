@@ -1,25 +1,16 @@
 <template>
   <main class="booking">
-    <Scheduling/>
-    
+    <Scheduling />
   </main>
 </template>
 <script>
-import { Component, Vue } from 'vue-property-decorator';
-import  Scheduling  from '@/components/Scheduling.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Scheduling from "@/components/Scheduling.vue";
 @Component({
   name: "BookView",
   components: {
     Scheduling,
   },
 })
-export default class BookingView extends Vue {
-
-
-  
-}
-
-
-
+export default class BookingView extends Vue {}
 </script>
-

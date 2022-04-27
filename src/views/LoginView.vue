@@ -2,20 +2,23 @@
   <div>
     <section>
       <div id="loginpanel">
-        <input type="text" v-model="u_email"
-          placeholder="Enter your email">
-        <input type="password" v-model="u_pass"
-          placeholder="Enter your password">
+        <input type="text" v-model="u_email" placeholder="Enter your email" />
+        <input
+          type="password"
+          v-model="u_pass"
+          placeholder="Enter your password"
+        />
         <div id="loginByEmail">
-          <button :disabled="!isValidInput"
-            @click="createAccount">Signup</button>
-          <button :disabled="u_email.length === 0" @click="resetPass">Reset
-            Password</button>
-          <button :disabled="!isValidInput"
-            @click="withEmail">Login</button>
+          <button :disabled="!isValidInput" @click="createAccount">
+            Signup
+          </button>
+          <button :disabled="u_email.length === 0" @click="resetPass">
+            Reset Password
+          </button>
+          <button :disabled="!isValidInput" @click="withEmail">Login</button>
         </div>
         <div>
-          <input id="verif" type="checkbox" v-model="emailVerification">
+          <input id="verif" type="checkbox" v-model="emailVerification" />
           <label for="verif">Send verification email</label>
         </div>
         <div id="withProvider">
@@ -24,11 +27,9 @@
         </div>
       </div>
     </section>
-    <span id="msgbox" v-show="message.length > 0">{{message}}</span>
-
+    <span id="msgbox" v-show="message.length > 0">{{ message }}</span>
   </div>
 </template>
-
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -146,7 +147,8 @@ export default class LoginView extends Vue {
       });
   }
 }
-</script> -->
+</script>
+-->
 <style scoped>
 #loginpanel {
   display: inline-flex;

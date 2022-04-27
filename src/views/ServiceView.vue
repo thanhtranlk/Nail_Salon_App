@@ -1,13 +1,12 @@
 <template>
   <main class="services">
-    <Services/>
-    
+    <Services />
   </main>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Services from '@/components/Services.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Services from "@/components/Services.vue";
 
 @Component({
   name: "ServiceView",
@@ -18,7 +17,7 @@ import Services from '@/components/Services.vue';
 export default class ServiceView extends Vue {}
 </script>
 <style scoped>
-div{
-  float:bottom;
+div {
+  float: bottom;
 }
 </style>
