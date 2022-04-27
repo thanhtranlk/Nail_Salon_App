@@ -1,0 +1,9 @@
+html{
+  background-position: 50%,50%;
+  background-image: linear-gradient(180deg,
+  #ffc0cbb3,#f4e4f3b3),url(/cherryBlossom.jpg);
+  background-size: cover;
+  min-height: 100%;
+}
+
+
